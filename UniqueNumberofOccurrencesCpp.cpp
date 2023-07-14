@@ -9,22 +9,21 @@ using namespace std;
 
 bool isFrequencyUnique(int n, int arr[])
 {
-	unordered_map<int, int> vals {};
+	unordered_map<int, int> vals{};
 	unordered_set<int> uniqueFrequency{};
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++)
+	{
 		int current = arr[i];
-		if (vals.find(current) != vals.end()) {
-			vals[current] = vals[current] + 1;
-		}
-		else {
-			vals[current] = 1;
-		}
+		vals[current]++;
 	}
-	for (const auto& pair : vals) {
-		if(uniqueFrequency.count(pair.second) > 0){
+	for (const auto &pair : vals)
+	{
+		if (uniqueFrequency.count(pair.second) > 0)
+		{
 			return false;
 		}
-		else {
+		else
+		{
 			uniqueFrequency.insert(pair.second);
 		}
 	}
@@ -33,14 +32,15 @@ bool isFrequencyUnique(int n, int arr[])
 
 int main()
 {
-	isFrequencyUnique(9, new int[] {0, -4, -4, 0, -4, -4, -4, 0, 0});
+	int arr[] = {0, -4, -4, 0, -4, -4, -4, 0, 0};
+	isFrequencyUnique(9, arr);
 	std::cout << "Hello World!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
+// Tips for Getting Started:
 //   1. Use the Solution Explorer window to add/manage files
 //   2. Use the Team Explorer window to connect to source control
 //   3. Use the Output window to see build output and other messages
